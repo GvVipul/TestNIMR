@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<test name="Test">
+<parameter name="node" value="http://10.0.100.61:4444/wd/hub" />
+<parameter name="browser" value="chrome" />
+<classes>
+<class name="com.nimr.tests.Test1">
+</class>
+<class name="com.nimr.tests.Test4_JSCvPreview">
+</class>
+</classes> 
+</test> 
+</suite>
