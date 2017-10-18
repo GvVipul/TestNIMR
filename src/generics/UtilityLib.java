@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
 
@@ -120,5 +121,10 @@ public class UtilityLib {
 		return v;
 	}
 
+	// Implicit Wait
+	public static void getImplicitWait(WebDriver driver)
+	{
+		driver.manage().timeouts().implicitlyWait(1000,TimeUnit.SECONDS);
+	}
 
 	}

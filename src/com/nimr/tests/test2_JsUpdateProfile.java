@@ -1,7 +1,12 @@
 package com.nimr.tests;
 
+import java.io.IOException;
+
+import generics.UtilityLib;
 import generics.baseTest;
 
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -13,7 +18,7 @@ public class test2_JsUpdateProfile extends baseTest {
 
 	@Test(groups={"smoke"},priority=2,alwaysRun=true)
 	@Parameters
-	public void testUpdateProfile() throws InterruptedException
+	public void testUpdateProfile() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
 	{
 		//*Login from home page to dashboard
 		
@@ -21,7 +26,10 @@ public class test2_JsUpdateProfile extends baseTest {
 		l.setSignin();
 		l.setEoman();
 		l.setSign2();
-		l.setNatid("187731");
+		// Enter id into national id field from excel - 1st row
+		String NationalID=UtilityLib.getCellValue(INPUT_PATH,"NationalID",0,0);
+		
+		l.setNatid(NationalID);	
 		l.setLoginbtn();
 		l.setJSlogin();
 		
@@ -33,6 +41,29 @@ public class test2_JsUpdateProfile extends baseTest {
 		d.setProfileUpdate();
 		
 		JS_02_ProfileUpdate updateProfile=new JS_02_ProfileUpdate(driver);
+		
+		//Click on browse button for Upload Profile Picture field
+		updateProfile.setBrowseBtn();
+		
+		
+		// Executing AutoIt to upload photo of JS
+		try
+		{
+			Runtime r=Runtime.getRuntime();
+			r.exec("D:\\Vipul\\SQL\\JS_UpdatePage.exe");
+		}
+		catch(Exception e)
+		{
+			System.out.println("Error in executing AutoIt under Test2_JsUpdateProfile");
+		}
+		
+		Thread.sleep(15000);
+		UtilityLib.getImplicitWait(driver);
+		// Click on upload button for Upload Profile Picture field
+		updateProfile.setUploadBtn();
+		
+		
+		
 		
 		//click on save and continue button in first page
 		updateProfile.setSave_continue1();

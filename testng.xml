@@ -3,11 +3,9 @@
 <suite name="Suite">
 <test name="Test">
 <parameter name="node" value="http://10.0.100.61:4444/wd/hub" />
-<parameter name="browser" value="chrome" />
+<parameter name="browser" value="chrome"/>
 <classes>
-<class name="com.nimr.tests.Test1">
-</class>
-<class name="com.nimr.tests.Test4_JSCvPreview">
+<class name="com.nimr.tests.Test2_JsUpdateProfile">
 </class>
 </classes> 
 </test> 

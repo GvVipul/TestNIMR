@@ -20,7 +20,7 @@ public class JS_01_SearchJobResultPage {
 	@FindBy(xpath="//input[@value='OK']")
 	private WebElement OkBtn;
 	
-	// Click close button on job details page
+	// Click close icon on job details page
 	@FindBy(xpath="//button[@aria-label='Close']")
 	private WebElement OKBtn2;
 	

@@ -5,14 +5,14 @@
     <parameter name="node" value="http://10.0.100.61:4444/wd/hub"/>
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.nimr.tests.Test1">
+      <class name="com.nimr.tests.Test8_cvUpdate">
         <methods>
+          <include name="testcvUpdate"/>
           <include name="setDriverPath"/>
           <include name="openApp"/>
-          <include name="testLogin"/>
           <include name="closeApp"/>
         </methods>
-      </class> <!-- com.nimr.tests.Test1 -->
+      </class> <!-- com.nimr.tests.Test8_cvUpdate -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

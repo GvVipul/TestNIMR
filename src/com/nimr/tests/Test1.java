@@ -1,6 +1,9 @@
 //JS applying for job
 package com.nimr.tests;
 
+import java.io.IOException;
+
+import generics.UtilityLib;
 import generics.baseTest;
 
 import org.apache.poi.EncryptedDocumentException;
@@ -17,7 +20,7 @@ public class Test1 extends baseTest {
 	
 	@Test(groups={"smoke"},priority=1,alwaysRun=true)
 	@Parameters
-	public void testLogin() throws EncryptedDocumentException, InvalidFormatException, InterruptedException
+	public void testApplyForJob() throws EncryptedDocumentException, InvalidFormatException, InterruptedException, IOException
 	{
 		//*Login from home page to dashboard
 		homePage l=new homePage(driver);
@@ -31,8 +34,10 @@ public class Test1 extends baseTest {
 		// click on sign in button under eoman option
 		l.setSign2();
 		
-		// Enter id into national id field
-		l.setNatid("03113729");
+		// Enter id into national id field from excel - 1st row
+		String NationalID=UtilityLib.getCellValue(INPUT_PATH,"NationalID",0,0);
+		
+		l.setNatid(NationalID);
 		
 		//After entering national id click on login button, to direct to service selection page
 		l.setLoginbtn();

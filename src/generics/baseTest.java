@@ -39,7 +39,9 @@ import org.testng.annotations.Parameters;
 			driver.manage().timeouts().implicitlyWait(2000,TimeUnit.SECONDS);
 			String URL=UtilityLib.getPropertyValue(CONFIG_PATH, "URL");
 			driver.get(URL);
+			
 		}
+			
 		
 		@AfterMethod
 		public void closeApp() throws InterruptedException

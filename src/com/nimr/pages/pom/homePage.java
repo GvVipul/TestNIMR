@@ -1,6 +1,10 @@
 package com.nimr.pages.pom;
 
 
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -55,11 +59,11 @@ public class homePage{
 		sign2.click();
 	}
 	
-	public void setNatid(String un) throws InterruptedException
+	public void setNatid(String NationalID) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
 	{
 		natid.clear();
 		Thread.sleep(1000);
-		natid.sendKeys(un);
+		natid.sendKeys(NationalID);
 	}
 	
 	public void setLoginbtn()
